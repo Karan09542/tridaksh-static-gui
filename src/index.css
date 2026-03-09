@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --light-dark: light;
+  color-scheme: var(--light-dark);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.25s ease-out;
+}
+
+.color-picker-control{
+  color: black;
+}
+
+/* Toast */
+/* container spacing */
+.fs-toast-container {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* base toast */
+.fs-toast {
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #111827;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* dark mode */
+.dark .fs-toast {
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* status indicators */
+.Toastify__toast--success {
+  border-left: 3px solid #22c55e;
+}
+
+.Toastify__toast--error {
+  border-left: 3px solid #ef4444;
+}
+
+.Toastify__toast--info {
+  border-left: 3px solid #3b82f6;
+}
+
+.Toastify__toast--warning {
+  border-left: 3px solid #f59e0b;
+}
+
+/* close button */
+.Toastify__close-button {
+  color: #6b7280;
+}
+
+.dark .Toastify__close-button {
+  color: #9ca3af;
+}
+
+/* Prose Markdown */
+
+@utility prose-app {
+  @apply text-sm leading-relaxed text-gray-800 dark:text-gray-200;
+}
+
+.prose-app {
+  @apply text-sm leading-relaxed text-gray-800 dark:text-gray-200;
+}
+
+/* headings */
+
+.prose-app h1 {
+  @apply text-2xl font-semibold mt-6 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2;
+}
+
+.prose-app h2 {
+  @apply text-lg font-semibold mt-5 mb-3;
+}
+
+.prose-app h3 {
+  @apply text-base font-semibold mt-4 mb-2 text-gray-700 dark:text-gray-300;
+}
+
+/* paragraphs */
+
+.prose-app p {
+  @apply my-2 leading-7;
+}
+
+/* verse / poetry blocks */
+
+.prose-app p:has(br) {
+  @apply font-medium tracking-wide;
+}
+
+/* lists */
+
+.prose-app ul {
+  @apply list-disc pl-5 my-3 space-y-2;
+}
+
+.prose-app ol {
+  @apply list-decimal pl-5 my-3 space-y-2;
+}
+
+.prose-app li {
+  @apply leading-6;
+}
+
+/* horizontal rule */
+
+.prose-app hr {
+  @apply my-6 border-gray-200 dark:border-gray-700;
+}
+
+/* links */
+
+.prose-app a {
+  @apply text-orange-600 dark:text-orange-400 hover:underline;
+}
+
+/* inline code */
+
+.prose-app code {
+  @apply px-1 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400;
+}
+
+/* code blocks */
+
+.prose-app pre {
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-md p-4 my-4 overflow-x-auto;
+}
+
+.prose-app pre code {
+  @apply bg-transparent text-gray-900 dark:text-gray-100 p-0;
+}
+
+/* blockquotes */
+
+.prose-app blockquote {
+  @apply border-l-4 border-orange-500 pl-4 italic text-gray-600 dark:text-gray-400 my-4;
+}
+
+/* tables */
+
+.prose-app table {
+  @apply w-auto max-w-full border border-gray-200 dark:border-gray-700 text-sm my-4;
+}
+
+.prose-app th {
+  @apply bg-gray-100 dark:bg-gray-800 text-left px-2 py-1 font-semibold;
+}
+
+.prose-app td {
+  @apply border-t border-gray-200 dark:border-gray-700 px-2 py-1;
+}
+
+.prose-app thead {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+/* images */
+
+.prose-app img {
+  @apply rounded-md my-4;
+}
