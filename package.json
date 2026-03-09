@@ -1,13 +1,44 @@
 {
-  "name": "static-gui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@tridaksh/static-gui",
+  "version": "0.0.1",
   "type": "module",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karan09542/tridaksh-static-gui.git"
+  },
+  "keywords": [
+    "tridaksh",
+    "tridaksh static gui",
+    "tradaksh-static-server-gui",
+    "static",
+    "static gui",
+    "static cli gui",
+    "static server gui",
+    "static file server gui"
+  ],
+  "description": "A static file server gui",
+  "main": "dist/index.html",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/karan09542/tridaksh-static-gui/issues"
+  },
+  "homepage": "https://github.com/karan09542/tridaksh-static-gui#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./dist": "./dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",

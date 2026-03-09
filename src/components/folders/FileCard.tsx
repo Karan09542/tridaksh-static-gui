@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useEffectEvent, useRef, useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import {
   Download,
@@ -161,6 +161,17 @@ const FileCard: React.FC<FileCardProps> = ({ fileName }) => {
     }
   }, [isRename]);
 
+  const handleKeyDown = useEffectEvent((e: KeyboardEvent) => {
+    if (e.key === "F2" && selectedFile === API_ENDPOINT) {
+      setIsRename(true);
+    }
+  })
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [])
+
   const handleDelete = async (e: React.MouseEvent) => {
     e.stopPropagation();
     const endpoint = `${API_ENDPOINT}?delete=true`;
@@ -203,10 +214,10 @@ const FileCard: React.FC<FileCardProps> = ({ fileName }) => {
       )}
       <div
         ref={fileRef}
-        onDoubleClick={() => !isMobile && handleFileClick(fileName)}
+        onDoubleClick={() => { !isMobile && handleFileClick(fileName) }}
         onClick={() => {
           isMobile && handleFileClick(fileName);
-          isMobile && selectFile(API_ENDPOINT);
+          !isMobile && selectFile(API_ENDPOINT);
         }}
         onContextMenu={handleContextMenu}
         className={`
