@@ -42,6 +42,7 @@ export const joinPath = (...paths: string[]) => {
 export const getApiEndpoint = (basename: string, path: string): string => {
   const route = import.meta.env.DEV ? "/api" : "";
   basename = basename.replace(/^(\/__dashboard|\/__dashboard\/)/, "");
+  basename = basename.replace(/^(\/api|\/api\/)/, "");
   basename = basename.replace(/^(\/folders\/|\/folders|\/search\/|\/search)/, "")
   return `${route}/${joinPath(basename, path).slice(1)}`.replace(/\/+/g, "/");
 };
