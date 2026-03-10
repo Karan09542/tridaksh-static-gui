@@ -8,7 +8,7 @@ import SearchBar from "../SearchBar";
 import Loader from "../Loader";
 import "tui-color-picker/dist/tui-color-picker.css";
 import "tui-color-picker/dist/tui-color-picker.js"; 
-import { joinPath, route } from "../../lib";
+import { getApiEndpoint, joinPath, route } from "../../lib";
 
 const FileStatView = ({ fileStat, loadingFileStat }: any) => {
   return loadingFileStat ? (
@@ -112,7 +112,7 @@ const MainLayout: React.FC = () => {
 
   async function fetchFileStat(file: string) {
     setLoadingFileStat(true);
-    const endpoint = `/api/${file}?info=true`;
+    const endpoint = getApiEndpoint("", file) + "?info=true";
     const res = await fetch(endpoint);
     if (!res.ok) {
       setLoadingFileStat(false);

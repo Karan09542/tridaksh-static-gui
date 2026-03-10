@@ -18,6 +18,7 @@ import {
   createEditorUrl,
   IMAGE_EXT,
   MARKDOWN_EXT,
+  TEXT_EXTENSIONS,
   VIDEO_EXTENSIONS,
 } from "../../lib";
 import Markdown from "../Markdown";
@@ -102,9 +103,18 @@ const FileViewer: React.FC<FileViewerProps> = ({
 
     if (ext && MARKDOWN_EXT.includes(ext)) {
       setType("markdown");
-    } else {
+    }
+
+    if (ext && TEXT_EXTENSIONS.includes(ext)) {
       setType("text");
     }
+    else if(!ext){
+      setType("text");
+    } else {
+      setType("other");
+      return;
+    }
+
 
     fetch(url)
       .then((r) => r.text())

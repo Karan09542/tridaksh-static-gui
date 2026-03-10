@@ -1,6 +1,6 @@
 {
   "name": "@tridaksh/static-gui",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "type": "module",
   "license": "MIT",
   "private": false,
@@ -38,7 +38,9 @@
     "access": "public"
   },
   "exports": {
-    "./dist": "./dist"
+    "./dist": "./dist",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
